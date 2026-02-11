@@ -1,0 +1,84 @@
+.hero-bg {
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.brand-gold {
+    color: #CCA169;
+}
+
+.gradient-brand-gold {
+    color: #CCA169;
+    background-image: -webkit-linear-gradient(90deg, rgba(237, 218, 194, 1), rgb(188, 155, 94, 1), rgba(237, 218, 194, 1), rgba(191, 148, 92));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-red {
+    color: #dc2626;
+}
+
+.bg-brand-gold {
+    background-color: #CCA169;
+}
+
+.bg-brand-red {
+    background-color: #dc2626;
+}
+
+.bg-image {
+    background-image: url(./assets/images/whiteBackground.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.faded {
+    /* אפקט דהייה מלבני מושלם */
+    mask-image: 
+        linear-gradient(to bottom, transparent, black 10%, black 90%, transparent),
+        linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    
+    /* שילוב המסכות כדי שיפעלו יחד */
+    mask-composite: intersect; 
+    -webkit-mask-composite: source-in; /* תמיכה בדפדפני ספארי וכרום ישנים */
+
+    /* גרסת וובקיט לספארי */
+    -webkit-mask-image: 
+        linear-gradient(to bottom, transparent, black 10%, black 90%, transparent),
+        linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.faded-y {
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 90%, 
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 90%, 
+        transparent 100%
+    );
+}
+
+@keyframes custom-ping {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.animate-aura {
+    animation: custom-ping 3s infinite;
+}
