@@ -40,7 +40,7 @@
 }
 </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tailwind-styles.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -85,7 +85,7 @@
             <span class="text-start gradient-brand-gold">אל תתפשרו על פחות מהטוב ביותר.</span>
           </h1>
           <p class="text-xl mb-8 opacity-90 text-gray-200">
-            אנחנו ביש בתים מתמחים בסגירת עיסקאות שכירות ונדל"ן ברמה הגבוהה ביותר. עם מתווכים בעלי ניסיון, אמינות ושירות
+            אנחנו ב-<strong class="text-red-500">יש בתים</strong> מתמחים בסגירת עיסקאות שכירות ונדל"ן ברמה הגבוהה ביותר. עם מתווכים בעלי ניסיון, אמינות ושירות
             ללא פשרות.
           </p>
 
@@ -101,26 +101,25 @@
 
         <!-- Hero Form -->
         <div class="bg-white/90 text-gray-800 p-8 rounded-2xl shadow-2xl">
-          <h3 class="text-2xl font-bold mb-2 text-center brand-red">השאירו פרטים</h3>
-          <p class="text-center text-gray-600 mb-2">ונחזור אליכם</p>
-          <form class="space-y-4" action="https://formspree.io/f/xbdlbnvp" method="POST">
+          <h3 class="text-2xl font-bold mb-2 text-center brand-red">השאירו פרטים ונחזור אליכם</h3>
+          <form class="space-y-4" method="POST" netlify>
 
             <div>
-              <label class="block mb-1 font-medium" for="name">שם מלא</label>
-              <input id="name" type="text" name="name"
+              <label id="name" for="name" class="block mb-1 font-medium">שם מלא</label>
+              <input type="text" name="name"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 outline-none transition"
                 placeholder="שם מלא">
             </div>
 
             <div>
-              <label class="block mb-1 font-medium" for="phone">מספר טלפון</label>
-              <input id="phone" type="tel" name="phone"
+              <label id="phone" for="phone" class="block mb-1 font-medium">מספר טלפון</label>
+              <input type="tel" name="phone"
                 class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 outline-none transition text-left direction-ltr placeholder:text-right"
                 placeholder="טלפון נייד" required>
             </div>
-
+            
             <button type="submit"
-              class="w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transform hover:scale-[1.02] transition duration-300 shadow-lg">
+              class="cursor-pointer w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transform hover:scale-[1.02] transition duration-300 shadow-lg">
               שלחו לי פרטים
             </button>
           </form>
@@ -165,7 +164,7 @@
               <img src="./assets/realEstate.png" alt="נדלן" class="w-[100px]">
             </div>
             <h4 class="font-bold text-xl mb-2">ראש שקט</h4>
-            <p class="text-gray-600">אנחנו מטפלים בהכל - ואנחנו טובים זה! <br> המתווכים שלנו למודי ניסיון וישמחו לסייע
+            <p class="text-gray-600">אנחנו מטפלים בהכל - ואנחנו טובים בזה! <br> המתווכים שלנו למודי ניסיון וישמחו לסייע
               גם לך.</p>
           </div>
         </div>
@@ -267,28 +266,28 @@
           </div>
 
           <!-- Contact Us Form -->
-          <div class="p-10 md:w-3/5 bg-white">
-            <form class="space-y-4" action="https://formspree.io/f/xbdlbnvp" method="POST">
+          <div class="grid content-around p-10 md:w-3/5 bg-white">
+            <form class="space-y-4" method="POST" netlify>
               <div>
-                <label class="block mb-1 font-medium" for="name">שם מלא</label>
-                <input type="text" name="name"
+                <label id="name_footer" for="name_footer" class="block mb-1 font-medium">שם מלא</label>
+                <input type="text" name="name_footer"
                   class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 outline-none transition"
                   placeholder="שם מלא">
               </div>
               <div>
-                <label class="block mb-1 font-medium" for="phone">מספר טלפון</label>
-                <input type="tel" name="phone"
+                <label id="phone_footer" for="phone_footer" class="block mb-1 font-medium">מספר טלפון</label>
+                <input type="tel" name="phone_footer"
                   class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-900 outline-none transition text-left direction-ltr placeholder:text-right"
                   placeholder="טלפון נייד" required>
               </div>
               <div>
-                <label class="block mb-2 font-bold text-gray-700">הודעה (אופציונלי)</label>
+                <label id="message" for="message" class="block mb-2 font-bold text-gray-700">הודעה (אופציונלי)</label>
                 <textarea type="text" name="message" rows="3"
-                  class="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-600 outline-none transition"
+                  class="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-900 outline-none transition"
                   placeholder="אני מעוניין בתיווך..."></textarea>
               </div>
               <button type="submit"
-                class="w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transform hover:scale-[1.02] transition duration-300 shadow-lg">
+                class="cursor-pointer w-full bg-brand-red text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 transform hover:scale-[1.02] transition duration-300 shadow-lg">
                 שלחו לי פרטים
               </button>
             </form>
@@ -357,7 +356,9 @@
         <h4 class="text-xl font-bold mb-4">קישורים מהירים</h4>
         <ul class="text-gray-400 space-y-2">
           <li><a href="#" class="hover:text-white transition">דף הבית</a></li>
-          <li><a href="https://ysbatim.co.il/" class="hover:text-white transition">לאתר הקבוצה</a></li>
+          <li><a href="./privacy.html" class="hover:text-white transition">לאתר הקבוצה</a></li>
+          <li><a href="https://ysbatim.co.il/" class="hover:text-white transition">הצהרת פרטיות</a></li>
+          <li><a href="./accessibility.html" class="hover:text-white transition">הצהרת נגישות</a></li>
         </ul>
       </div>
     </div>

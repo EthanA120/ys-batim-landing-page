@@ -4,9 +4,6 @@ const observerOptions = {
     threshold: 0.15 // Appearing after 15% of the section is showed on screen
 };
 
-document.querySelectorAll('.reveal').forEach(el => console.log(el.classList.add('transition-all', 'duration-1000', 'ease-in-out')));
-
-
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -44,4 +41,43 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (galImg) {
         galImg.src = `assets/images/gs${anotherNumber}.jpeg`;
     }
+});
+
+/** Form POST Redirect Function
+    Handle Netlify Form submission via AJAX
+    This function works for all forms on the page
+*/
+const handleSubmit = (event) => {
+    // Prevent the default form submission (page refresh)
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    // Send the data to Netlify
+    fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+    })
+        .then(() => {
+            // Display success message inside the specific form that was submitted
+            myForm.innerHTML = `<div class="text-center p-6 bg-green-100 rounded-lg text-green-800 border border-green-200 animate-pulse">
+          <h3 class="font-bold text-xl">תודה רבה!</h3>
+          <p>הפרטים התקבלו בהצלחה, נחזור אליך בהקדם.</p>
+        </div>`;
+
+            // Optional: Scroll the success message into view smoothly
+            myForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch((error) => {
+            // Log errors for debugging
+            console.error("Form submission error:", error);
+            alert("Oops! There was a problem sending your details. Please try again.");
+        });
+};
+
+// Initialize event listeners for all forms on the page
+document.querySelectorAll("form").forEach((form) => {
+    form.addEventListener("submit", handleSubmit);
 });

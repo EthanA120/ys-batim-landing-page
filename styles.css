@@ -36,6 +36,8 @@
     background-repeat: no-repeat;
 }
 
+/* button {cursor: pointer;} */
+
 .faded {
     /* אפקט דהייה מלבני מושלם */
     mask-image: 
