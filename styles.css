@@ -30,7 +30,7 @@
 }
 
 .bg-image {
-    background-image: url(./assets/images/whiteBackground.jpg);
+    background-image: url(./assets/images/whiteBackground.webp);
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;

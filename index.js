@@ -33,13 +33,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Update images (sa1, sa2, sa3)
     const shimonImg = document.getElementById('shimon-img');
     if (shimonImg) {
-        shimonImg.src = `assets/images/sa${randomNumber}.jpeg`;
+        shimonImg.src = `assets/images/sa${randomNumber}.webp`;
     }
 
     // Update images (ga1, ga2, ga3)
     const galImg = document.getElementById('gal-img');
     if (galImg) {
-        galImg.src = `assets/images/gs${anotherNumber}.jpeg`;
+        galImg.src = `assets/images/gs${anotherNumber}.webp`;
     }
 });
 
@@ -52,12 +52,18 @@ const handleSubmit = (event) => {
     // Prevent the default form submission (page refresh)
     event.preventDefault();
 
+    // Data from the form
     const myForm = event.target;
     const formData = new FormData(myForm);
 
     // The data to send to Google Sheets
-    const dataForSheets = Object.fromEntries(formData.entries());
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxYabTQhGyf8oG3KDzI1VZy-pYYQLnAodyjRp_mHlSRsHk-mjwmJPxHmDPPwwEtysv0Qg/exec';
+    const dataForSheets = {
+        name: formData.get('name') || formData.get('name_footer'),
+        phone: formData.get('phone') || formData.get('phone_footer'),
+        message: formData.get('message') || 'רשומה מהטופס העליון',
+        source: myForm.id || 'Landing Page'
+    };
 
     // 1. Send the data to Netlify
     fetch("/", {
@@ -66,7 +72,13 @@ const handleSubmit = (event) => {
         body: new URLSearchParams(formData).toString(),
     })
         .then(() => {
-            // 2. Send the data to Google Sheets
+            // 2. Report to Google Analytics
+            gtag('event', 'generate_lead', {
+                'event_category': 'Form',
+                'event_label': dataForSheets.source, //Check if it comes from the upper or the lower form
+                'value': 1.0
+            })
+            // 3. Send the data to Google Sheets
             // There is no need to wait for success message from netlify
             fetch(scriptURL, {
                 method: "POST",
@@ -75,9 +87,10 @@ const handleSubmit = (event) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(dataForSheets)
-            }).then(() => {
-                console.log("Data sent to Google Sheets successfully");
             })
+                .then(() => {
+                    console.log("Data sent to Google Sheets successfully");
+                })
                 .catch(err => console.error("Sheets Error:", err));
 
             // Display success message inside the specific form that was submitted
