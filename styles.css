@@ -64,10 +64,9 @@
 /* Gold Border with Red Gradient Background */
 .gold-border-card {
     border: 2px solid transparent;
-    /* השכבה הראשונה היא הרקע האדום, השכבה השנייה היא המסגרת המוזהבת */
+    /* First layer is the red background, second layer is the golden border */
     background: linear-gradient(to left, #dc2626, #991b1b) padding-box,
         linear-gradient(90deg, rgba(237, 218, 194, 1), rgb(188, 155, 94, 1), rgba(237, 218, 194, 1), rgba(191, 148, 92)) border-box;
-    border-radius: 1rem;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -106,6 +105,16 @@
             black 10%,
             black 90%,
             transparent 100%);
+}
+
+/* Targets the div inside the group when the group is hovered */
+.group:hover .group-hover\:bg-brand-red {
+    background-color: var(--brand-red) !important;
+}
+
+/* Targets the svg inside the group when the group is hovered */
+.group:hover .group-hover\:text-white {
+    color: #ffffff !important;
 }
 
 @keyframes custom-ping {
