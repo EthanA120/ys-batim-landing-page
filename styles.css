@@ -1,3 +1,11 @@
+/* --- Global Theme Settings --- */
+:root {
+    /* Color Palette */
+    --brand-gold: #CCA169;
+    --brand-red: #c22b2b;
+    --brand-red-10: #c22b2b30;
+}
+
 .hero-bg {
     background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
         url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -5,29 +13,45 @@
     background-position: center;
 }
 
-.brand-gold {
-    color: #CCA169;
+.text-brand-gold {
+    color: var(--brand-gold);
+}
+
+.text-brand-red {
+    color: var(--brand-red);
+}
+
+.bg-brand-gold {
+    background-color: var(--brand-gold);
+}
+
+.bg-brand-red {
+    background-color: var(--brand-red);
+}
+
+.border-brand-red {
+    border-color: var(--brand-red-10);
+}
+
+.bg-buildings-pattern {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('./assets/images/buildings.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.subtle-arch-pattern {
+    background-color: #ffffff;
+    background-image: radial-gradient(#c22b2b08 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 .gradient-brand-gold {
-    color: #CCA169;
+    color: var(--brand-gold);
     background-image: -webkit-linear-gradient(90deg, rgba(237, 218, 194, 1), rgb(188, 155, 94, 1), rgba(237, 218, 194, 1), rgba(191, 148, 92));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-
-.brand-red {
-    color: #dc2626;
-}
-
-.bg-brand-gold {
-    background-color: #CCA169;
-}
-
-.bg-brand-red {
-    background-color: #dc2626;
 }
 
 .bg-image {
@@ -37,37 +61,51 @@
     background-repeat: no-repeat;
 }
 
-/* button {cursor: pointer;} */
+/* Gold Border with Red Gradient Background */
+.gold-border-card {
+    border: 2px solid transparent;
+    /* השכבה הראשונה היא הרקע האדום, השכבה השנייה היא המסגרת המוזהבת */
+    background: linear-gradient(to left, #dc2626, #991b1b) padding-box,
+        linear-gradient(90deg, rgba(237, 218, 194, 1), rgb(188, 155, 94, 1), rgba(237, 218, 194, 1), rgba(191, 148, 92)) border-box;
+    border-radius: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Gold Hover */
+.gold-border-card:hover {
+    box-shadow: 0 10px 20px -10px rgba(184, 134, 11, 0.4);
+    transform: translateY(-2px);
+}
 
 .faded {
     /* אפקט דהייה מלבני מושלם */
-    mask-image: 
-        linear-gradient(to bottom, transparent, black 10%, black 90%, transparent),
-        linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    
+    mask-image:
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent),
+        linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+
     /* שילוב המסכות כדי שיפעלו יחד */
-    mask-composite: intersect; 
-    -webkit-mask-composite: source-in; /* תמיכה בדפדפני ספארי וכרום ישנים */
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+    /* תמיכה בדפדפני ספארי וכרום ישנים */
 
     /* גרסת וובקיט לספארי */
-    -webkit-mask-image: 
-        linear-gradient(to bottom, transparent, black 10%, black 90%, transparent),
-        linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent, black 5%, black 95%, transparent),
+        linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 }
 
 .faded-y {
-    mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%
-    );
-    -webkit-mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%
-    );
+    mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%);
 }
 
 @keyframes custom-ping {
