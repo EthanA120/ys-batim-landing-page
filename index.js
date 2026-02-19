@@ -24,6 +24,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
+/** 
 //Random agent image
 window.addEventListener('DOMContentLoaded', (event) => {
     // Choose number between 1 to 3
@@ -39,9 +40,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Update images (ga1, ga2, ga3)
     const galImg = document.getElementById('gal-img');
     if (galImg) {
-        galImg.src = `assets/images/gs${anotherNumber}.webp`;
+        galImg.src = `assets/images/ghs${anotherNumber}.webp`;
     }
 });
+*/
 
 /** Form POST Redirect Function
     Handle Netlify Form submission via AJAX
