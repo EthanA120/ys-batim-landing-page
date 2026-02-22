@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Link to your sitemap
-Sitemap: https://alfasi-realestate.netlify.app/sitemap.xml
+Sitemap: https://alfassi-nadlan.co.il/sitemap.xml
